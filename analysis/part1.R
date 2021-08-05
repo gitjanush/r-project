@@ -6,6 +6,9 @@ library(ggplot2)
 data_path <- file.path(getwd(), "data", "DelayedFlights.csv")
 data <- read_csv(data_path)
 
+data <- data %>%
+  mutate(Month = as.factor(Month))
+
 ### Delay vs month
 ## Calculate averages
 avg_months_arr <- data %>%
@@ -120,3 +123,4 @@ hauls_p2 <- ggplot(hauls_grouped, aes(x = DistLabel, y = avg_delay)) +
 ## Save
 ggsave("img/hauls_plot.png", hauls_plot)
 ggsave("img/hauls_avgs.png", hauls_p2)
+
