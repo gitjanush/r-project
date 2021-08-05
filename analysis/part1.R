@@ -56,7 +56,7 @@ ggsave("img/cancelled_flights.png", plot_cancelled)
 
 
 
-### Workday / weekend vs delay
+### Working day / weekend vs delay
 ## Calculate
 wd_wk_delays <- data %>%
   group_by(WeekDay) %>%
@@ -112,7 +112,7 @@ hauls_plot <- ggplot(hauls_cut, aes(ArrDelay)) +
 ## Plot 2
 hauls_p2 <- ggplot(hauls_grouped, aes(x = DistLabel, y = avg_delay)) +
   geom_col(fill = "#C20D0A") + 
-  labs(title = "Average rrival delay vs distance",
+  labs(title = "Average arrival delay vs distance",
        x = "Flight",
        y = "Average arrival delay (min)") + 
   theme_bw()
