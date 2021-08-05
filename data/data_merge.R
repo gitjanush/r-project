@@ -1,3 +1,6 @@
+library(dplyr)
+library(readr)
+
 # Create a vector of file names to join
 fnames <- paste("month_", 1:12, ".csv", sep = "")
 
@@ -10,4 +13,5 @@ for (f in fnames[2:12]) {
   complete_data <- rbind(complete_data, current_part)
 }
 
+# Save the result
 write_csv(complete_data, "DelayedFlights.csv")
