@@ -1,13 +1,2 @@
-PART 1
-weekend-workday delays histogram,
-percentage of types of delayed and cancelled flights,
-flight duration/distans vs delay,
-percentage of delayed flights vs flight distance,
-percentage of delayed flights in every airport
-
-PART 2
-hypothesis (questions, answers),
-like part 1 but with some lm coefficients
-
-PART 3
-the smallest trash - prediction_model 
+Use trello:
+https://trello.com/invite/b/LGmUNcw1/de4726b48c591f1932fa1a968186b7d5/delay-analysis
