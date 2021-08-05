@@ -9,6 +9,15 @@ data <- read_csv(data_path)
 data <- data %>%
   mutate(Month = as.factor(Month))
 
+### Prep data
+months = c("Jan", "Feb", "Mar", "Apr", "May", "Jun",
+           "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+
+data <- data %>%
+  mutate(WeekDay = ifelse(DayOfWeek < 5, "Working day", "Weekend") %>% as.factor(),
+         Month = factor(Month, levels = 1:12, labels = months),
+         UniqueCarrier = as.factor(UniqueCarrier))
+
 ### Delay vs month
 ## Calculate averages
 avg_months_arr <- data %>%
@@ -22,16 +31,18 @@ avg_months_dep <- data %>%
   mutate(delay = "departure")
 
 avg_months <- avg_months_dep %>%
-  rbind(avg_months_arr)
+  rbind(avg_months_arr) %>%
+  mutate(delay = factor(delay, levels = c("departure", "arrival")))
 
 ## Plot averages
 plot_months <- ggplot(avg_months, aes(Month, avg_delay, fill = delay)) + 
-  geom_col(position = position_dodge(width = 0.5)) +
+  geom_col(position = position_dodge(width = 0.7)) +
   scale_fill_manual(values=c("#F5403D", "#C20D0A")) + 
   labs(title = "Average delay vs month",
        y = "Average delay") +
   theme_bw()
 
+plot_months
 ## Saving plots
 ggsave("img/avg_months.png", plot_months)
 
