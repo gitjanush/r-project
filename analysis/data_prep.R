@@ -12,7 +12,7 @@ months = c("Jan", "Feb", "Mar", "Apr", "May", "Jun",
            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 
 data <- data %>%
-  mutate(WeekDay = ifelse(DayOfWeek < 5, "Workday", "Weekend") %>% as.factor(),
+  mutate(WeekDay = ifelse(DayOfWeek < 5, "Working day", "Weekend") %>% as.factor(),
          Month = factor(Month, levels = 1:12, labels = months),
          UniqueCarrier = as.factor(UniqueCarrier))
 
