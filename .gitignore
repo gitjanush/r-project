@@ -2,3 +2,4 @@ DelayedFlights.csv
 *.zip
 .Rproj
 *.RProj
+.Rproj.user
