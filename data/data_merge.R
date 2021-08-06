@@ -2,7 +2,7 @@ library(dplyr)
 library(readr)
 
 # Create a vector of file names to join
-fnames <- paste("data/month_", 1:12, ".csv", sep = "")
+fnames <- paste("month_", 1:12, ".csv", sep = "")
 
 complete_data <- read_csv(fnames[1])
 
